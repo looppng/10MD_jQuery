@@ -1,3 +1,55 @@
+* {
+  box-sizing: border-box;
+}
+
+.js-h1 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
 body {
-  background-color: antiquewhite;
+  margin: 0;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.form-child {
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+}
+
+.form-group {
+  display: flex;
+  gap: 1rem;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+.input__field {
+  padding: 0.4rem;
+  border-radius: 5px;
+  border: 1px solid black;
+}
+
+.input__label {
+  font-size: 1.3rem;
+}
+
+.button {
+  display: flex;
+  margin: 0 auto;
+  padding: 10px 30px;
+  background-color: rgb(89, 89, 239);
+  border-radius: 7px;
+  border: 1px solid black;
+  color: white;
+  cursor: pointer;
+
+  font-family: inherit
 }
