@@ -20,8 +20,16 @@ describe('passwordValidate', () => {
         expect(result).toBe(true);
     });
 
-    it ('should ' , () => {
+    it ('should accept both lowercase and Uppercase letters' , () => {
+        const result = passwordValidate('!frQD123')
 
+        expect(result).toBe(true);
     }); 
+
+    it('password cant only be letters', () => {
+        const result = passwordValidate('AbcdEfgh');
+    
+        expect(result).toBe(false);
+    });
 
 });

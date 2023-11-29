@@ -12,18 +12,19 @@ $('.form-wrapper').html(`
     <form class="form-group js-form">
         <div class="form-child">
             <label for="name" class="input__label">Name</label>
-            <input type="text" class="input__field js-name" id="name" name="name" value=""></input>
+            <input type="text" class="input__field js-name" id="name" name="name" value=""></input><span id="nameV"></span>
         </div>
         <div class="form-child">
             <label for="email" class="input__label"  >Email</label>
-            <input type="text" class="input__field js-email" id="email" name="email" value=""></input>
+            <input type="text" class="input__field js-email" id="email" name="email" value=""></input><span id="emailV"></span>
         </div>
         <div class="form-child">
             <label for="password" class="input__label"  >Password</label>
-            <input type="password" class="input__field js-password" id="password" name="password" value="" ></input>
+            <input type="password" class="input__field js-password" id="password" name="password" value="" ></input id="passV"><span></span>
         </div>
         <button type="submit" class="button">Login</button>
     </form>
+    <div id="successMessage" style="display: none; color: green;">Form submitted successfully!</div>
 </div>
 `);
 
@@ -46,6 +47,8 @@ $('.form-wrapper').html(`
 
 $('.js-form').on('submit', (e) => {
     e.preventDefault();
+
+    let isFormValid = true;
     
     const nameInput = $('.js-name');
     const name = $<HTMLInputElement>('.js-name').val() as string;
@@ -54,9 +57,10 @@ $('.js-form').on('submit', (e) => {
     if (nameIsValid) {
         console.log("name OK")
     } else {
+        isFormValid = false;
         console.log("name is not valid")
-        alert("Name validation error: The name must have at least 2 characters and can only contain letters. Max 50 characters.");
         $(nameInput).trigger('focus');
+        $( "#nameV" ).text( "Not valid!" ).show().fadeOut( 3000 );
     }
 
 
@@ -68,7 +72,9 @@ $('.js-form').on('submit', (e) => {
         console.log("email OK")
     } else {
         console.log("email is not valid")
-        alert("Email validation error: The email must be in a valid format (e.g. example@example.com).");
+        isFormValid = false;
+        $( "#emailV" ).text( "Not valid!" ).show().fadeOut( 3000 );
+        // alert("Email validation error: The email must be in a valid format (e.g. example@example.com).");
         $(emailInput).trigger('focus');
     }
 
@@ -79,10 +85,17 @@ $('.js-form').on('submit', (e) => {
     if (passwordIsValid) {
         console.log("password OK")
     } else {
+        isFormValid = false;
         console.log("password doesnt meet requirements")
+        // $( "#passV" ).text( "Not valid!" ).show().fadeOut( 3000 );
         alert("Password validation error: The password must be at least 8 characters long and must contain at least 1 number and 1 special character (!, @, #, $, %, ^, &, *).");
         $(passwordInput).trigger('focus');
     }
-    
+
+    if (isFormValid) {
+        console.log("Form submitted successfully!");
+        $("#successMessage").show();
+    }
+
 });
 
