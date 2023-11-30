@@ -53,3 +53,12 @@ body {
 
   font-family: inherit
 }
+
+#successMessage {
+  color: green;
+  display: none;
+}
+
+#nameV, #emailV, #passV {
+  display: inline;
+}

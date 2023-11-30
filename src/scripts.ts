@@ -5,26 +5,27 @@ import { passwordValidate } from './utils/passwordValidate/passwordValidate';
 
 // var toast = new Toasty();
 
-$('.js-h1').text('Login');
+$('.js-h1').text('Login Form');
 
 $('.form-wrapper').html(`
 <div class="form-wrapper">
     <form class="form-group js-form">
         <div class="form-child">
             <label for="name" class="input__label">Name</label>
-            <input type="text" class="input__field js-name" id="name" name="name" value=""></input><span id="nameV"></span>
+            <input type="text" class="input__field js-name" id="name" name="name" value=""/><span id="nameV"></span>
         </div>
         <div class="form-child">
             <label for="email" class="input__label"  >Email</label>
-            <input type="text" class="input__field js-email" id="email" name="email" value=""></input><span id="emailV"></span>
+            <input type="text" class="input__field js-email" id="email" name="email" value=""/><span id="emailV"></span>
         </div>
         <div class="form-child">
             <label for="password" class="input__label"  >Password</label>
-            <input type="password" class="input__field js-password" id="password" name="password" value="" ></input id="passV"><span></span>
+            <input type="password" class="input__field js-password" id="password" name="password" value="" /> id="passV"><span></span>
         </div>
         <button type="submit" class="button">Login</button>
+        <div id="successMessage">Form submitted successfully!</div>
     </form>
-    <div id="successMessage" style="display: none; color: green;">Form submitted successfully!</div>
+    
 </div>
 `);
 
@@ -86,9 +87,9 @@ $('.js-form').on('submit', (e) => {
         console.log("password OK")
     } else {
         isFormValid = false;
-        console.log("password doesnt meet requirements")
-        // $( "#passV" ).text( "Not valid!" ).show().fadeOut( 3000 );
-        alert("Password validation error: The password must be at least 8 characters long and must contain at least 1 number and 1 special character (!, @, #, $, %, ^, &, *).");
+        console.log("password doesnt meet requirements ")
+        $( "#passV" ).text( "Not valid!" ).show().fadeOut( 3000 );
+        // alert("Password validation error: The password must be at least 8 characters long and must contain at least 1 number and 1 special character (!, @, #, $, %, ^, &, *).");
         $(passwordInput).trigger('focus');
     }
 
