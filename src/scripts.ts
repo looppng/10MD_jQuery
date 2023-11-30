@@ -20,7 +20,7 @@ $('.form-wrapper').html(`
         </div>
         <div class="form-child">
             <label for="password" class="input__label"  >Password</label>
-            <input type="password" class="input__field js-password" id="password" name="password" value="" /> id="passV"><span></span>
+            <input type="password" class="input__field js-password" id="password" name="password" value="" /><span id="passV"></span>
         </div>
         <button type="submit" class="button">Login</button>
         <div id="successMessage">Form submitted successfully!</div>
